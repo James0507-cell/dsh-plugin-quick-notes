@@ -1,0 +1,85 @@
+{
+  "apiVersion": 1,
+  "id": "sample.quick-notes",
+  "name": "Quick Notes",
+  "version": "1.0.0",
+  "description": "A data-only quick-notes demo for DSH Mobile, used to show install from a local file: download dsh-plugin.json from the repository, then open Settings -> Plugins -> INSTALL PLUGIN -> FROM FILE and pick it. The pack adds a Notes page with the import instructions, a Quick Notes card on the Now screen, and a NOTE composer chip that inserts a one-line note prompt. It contains no code, no network access and no storage of its own: the file is the whole plugin, and the app renders it.",
+  "author": "DSH Mobile Samples",
+  "experimental": true,
+  "pages": [
+    {
+      "id": "notes",
+      "title": "Notes",
+      "iconKey": "list",
+      "dock": false,
+      "order": 220,
+      "body": {
+        "title": "Quick notes",
+        "intro": "One page, one home card and one composer chip: everything this pack adds comes from dsh-plugin.json.",
+        "rows": [
+          {
+            "label": "HOW",
+            "value": "Settings -> Plugins -> INSTALL PLUGIN -> FROM FILE",
+            "note": "Choose the dsh-plugin.json you downloaded from the repository or copied to the phone."
+          },
+          {
+            "label": "SOURCE",
+            "value": "dsh-plugin.json",
+            "note": "Download the raw file from github.com/James0507-cell/dsh-plugin-quick-notes, or copy it over USB."
+          },
+          {
+            "label": "LIMIT",
+            "value": "64 KiB",
+            "note": "The app refuses a larger document. This sample is a few kilobytes; the file must stay valid UTF-8 JSON."
+          },
+          {
+            "label": "DATA ONLY",
+            "value": "no code",
+            "note": "The pack stores nothing itself; notes you type stay in the chat session."
+          }
+        ],
+        "actions": [
+          {
+            "label": "OPEN SESSIONS",
+            "type": "open-screen",
+            "target": "host.screen.sessions"
+          },
+          {
+            "label": "SAY HI",
+            "type": "toast",
+            "value": "Quick Notes is data only: no notes are stored by this pack."
+          }
+        ]
+      }
+    }
+  ],
+  "homeCards": [
+    {
+      "title": "QUICK NOTES",
+      "subtitle": "Imported from a local .json file",
+      "rows": [
+        {
+          "label": "INSTALL",
+          "value": "INSTALL PLUGIN -> FROM FILE"
+        },
+        {
+          "label": "FILE",
+          "value": "dsh-plugin.json"
+        }
+      ],
+      "actions": [
+        {
+          "label": "OPEN NOTES",
+          "type": "open-page",
+          "target": "notes"
+        }
+      ]
+    }
+  ],
+  "composerActions": [
+    {
+      "label": "NOTE",
+      "text": "Save a one-line note: "
+    }
+  ]
+}
